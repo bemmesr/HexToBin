@@ -8,18 +8,7 @@
 
 #include <stdlib.h>
 
-byte toByte(char hex) {
-	if (hex >= '0' && hex <= '9') {
-		return hex - '0';
-	}
-	if (hex >= 'a' && hex <= 'f') {
-		return hex - 'a' + 10;
-	}
-	if (hex >= 'A' && hex <= 'F') {
-		return hex - 'A' + 10;
-	}
-	return 0;
-}
+byte toByte(char hex);
 
 byte *toBin(char *hex, int *size) {
 	byte buffer[*size];
@@ -40,4 +29,17 @@ byte *toBin(char *hex, int *size) {
 	}
 	*size = bufferIndex;
 	return result;
+}
+
+byte toByte(char hex) {
+	if (hex >= '0' && hex <= '9') {
+		return hex - '0';
+	}
+	if (hex >= 'a' && hex <= 'f') {
+		return hex - 'a' + 10;
+	}
+	if (hex >= 'A' && hex <= 'F') {
+		return hex - 'A' + 10;
+	}
+	return 0;
 }
